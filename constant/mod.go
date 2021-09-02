@@ -1,7 +1,8 @@
 package constant
 
 var (
-	Version   = "0.0.1"
+	App       = "miniflux"
+	Version   = "1.0.0"
 	Commit    = "HEAD"
 	BuildDate = "undefined"
 )

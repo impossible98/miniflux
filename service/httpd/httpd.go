@@ -20,7 +20,7 @@ import (
 	"miniflux.app/logger"
 	"miniflux.app/storage"
 	"miniflux.app/ui"
-	"miniflux.app/version"
+	"miniflux.app/constant"
 	"miniflux.app/worker"
 
 	"github.com/gorilla/mux"
@@ -193,7 +193,7 @@ func setupHandler(store *storage.Storage, pool *worker.Pool) *mux.Router {
 	}).Name("healthcheck")
 
 	router.HandleFunc("/version", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte(version.Version))
+		w.Write([]byte(constant.Version))
 	}).Name("version")
 
 	if config.Opts.HasMetricsCollector() {

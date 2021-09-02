@@ -5,12 +5,12 @@ import (
 	"fmt"
 
 	"miniflux.app/config"
+	"miniflux.app/constant"
 	"miniflux.app/database"
 	"miniflux.app/locale"
 	"miniflux.app/logger"
 	"miniflux.app/storage"
 	"miniflux.app/ui/static"
-	"miniflux.app/constant"
 )
 
 const (
@@ -83,7 +83,7 @@ func Parse() {
 	}
 
 	if flagVersion {
-		fmt.Println(constant.Version)
+		fmt.Printf("%s: %s(%s)\n", constant.App, constant.Version, constant.BuildDate)
 		return
 	}
 

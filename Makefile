@@ -2,8 +2,8 @@ APP          := miniflux
 DOCKER_IMAGE := miniflux/miniflux
 VERSION      := $(shell git describe --tags --abbrev=0)
 COMMIT       := $(shell git rev-parse --short HEAD)
-BUILD_DATE   := `date +%FT%T%z`
-LD_FLAGS     := "-s -w -X 'miniflux.app/version.Version=$(VERSION)' -X 'miniflux.app/version.Commit=$(COMMIT)' -X 'miniflux.app/version.BuildDate=$(BUILD_DATE)'"
+BUILD_DATE   := `date -u "+%F"`
+LD_FLAGS     := "-s -w -X 'miniflux.app/constant.Version=$(VERSION)' -X 'miniflux.app/constant.Commit=$(COMMIT)' -X 'miniflux.app/constant.BuildDate=$(BUILD_DATE)'"
 PKG_LIST     := $(shell go list ./... | grep -v /vendor/)
 DB_URL       := postgres://postgres:postgres@localhost/miniflux_test?sslmode=disable
 DEB_IMG_ARCH := amd64

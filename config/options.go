@@ -10,7 +10,7 @@ import (
 	"strings"
 	"time"
 
-	"miniflux.app/version"
+	"miniflux.app/constant"
 )
 
 const (
@@ -70,7 +70,7 @@ const (
 	defaultWatchdog                           = true
 )
 
-var defaultHTTPClientUserAgent = "Mozilla/5.0 (compatible; Miniflux/" + version.Version + "; +https://miniflux.app)"
+var defaultHTTPClientUserAgent = "Mozilla/5.0 (compatible; Miniflux/" + constant.Version + "; +https://miniflux.app)"
 
 // Option contains a key to value map of a single option. It may be used to output debug strings.
 type Option struct {
