@@ -14,7 +14,6 @@ import (
 )
 
 const (
-	flagInfoHelp            = "Show application information"
 	flagVersionHelp         = "Show application version"
 	flagMigrateHelp         = "Run SQL migrations"
 	flagFlushSessionsHelp   = "Flush all sessions (disconnect users)"
@@ -31,7 +30,6 @@ const (
 func Parse() {
 	var (
 		err                 error
-		flagInfo            bool
 		flagVersion         bool
 		flagMigrate         bool
 		flagFlushSessions   bool
@@ -50,7 +48,6 @@ func Parse() {
 	flag.BoolVar(&flagDebugMode, "debug", false, flagDebugModeHelp)
 	flag.BoolVar(&flagFlushSessions, "flush-sessions", false, flagFlushSessionsHelp)
 	flag.StringVar(&flagHealthCheck, "healthcheck", "", flagHealthCheckHelp)
-	flag.BoolVar(&flagInfo, "info", false, flagInfoHelp)
 	flag.BoolVar(&flagMigrate, "migrate", false, flagMigrateHelp)
 	flag.BoolVar(&flagResetFeedErrors, "reset-feed-errors", false, flagResetFeedErrorsHelp)
 	flag.BoolVar(&flagResetPassword, "reset-password", false, flagResetPasswordHelp)
@@ -82,11 +79,6 @@ func Parse() {
 
 	if flagHealthCheck != "" {
 		doHealthCheck(flagHealthCheck)
-		return
-	}
-
-	if flagInfo {
-		info()
 		return
 	}
 
